@@ -25,15 +25,13 @@ L_kn<-function(P, D=pg){
 	lik2 = sum(dnorm(dat2, P[3], sqrt(P[5])), log=T)
 
 	total_lik = lik1+lik2
-	trunc_lik = max(-700, total_lik)
-	return(trunc_lik)
-
+        return(total_lik)
 	}
 
 maxL<-function(P,D=pg){
 	#returns new parameter estimates given old pars P, data D, and an expecation function
 	f<-function(X){L_kn(X,D=pg)}
-	o<-optim(P,f,  method="L-BFGS-B", lower=rep(0,5), upper=c(1,rep(Inf,4)), control=c(pgtol=-1))
+	o<-optim(P,f)
 	o
 	}
 
@@ -60,7 +58,7 @@ E<-function(P, D){
 	Ep = prob_g1 / total_prob
 	
 	total_lik 	= log(prod(Ep*dnorm(D, P[2], sqrt(P[4])) + (1-Ep)*dnorm(D, P[3], sqrt(P[5]))))
-
+          ## should rewrite to avoid unpreferred areas natively due to problems with bfgs
 	trunc_lik = max(-700, total_lik)
 	return(trunc_lik)
 	}

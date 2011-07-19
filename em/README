@@ -1,0 +1,11 @@
+Log of adg on EM
+
+em.R is code from Chang et al pdf
+
+em2.R is initial stab at abstraction (from Carl's gist)
+=== > See branch dev711 for initial efforts at revising em2.R
+
+em3_plants is a stab at revising em2, changes include using a different data set, 
+using optim to calculate lik using full data initially
+
+em3_binom is an inital try at implementing an unkown coin EM
