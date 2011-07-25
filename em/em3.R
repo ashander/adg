@@ -29,10 +29,11 @@ maximization_step <- function(W, missing, s){
       if(s[1] <= 0 || s[1] >= 1) 
         loglik <- -Inf
       else {
-      loglik <- sum(dnorm(W, s[2], sqrt(s[4]), log=TRUE)+log(Ep) +
-                    dnorm(W, s[3], sqrt(s[5]), log=TRUE)+log(1-Ep) ) +
-                sum(log(s[1]*dnorm(W, s[2], sqrt(s[4]))+
-                    (1-s[1])*dnorm(W, s[3], sqrt(s[5]))))
+      loglik <- sum(
+                   Ep*(dnorm(W, s[2], sqrt(s[4]), log=TRUE) + log(s[1])) +
+                   (1-Ep) * (dnorm(W, s[3], sqrt(s[5]), log=TRUE) + log(1-s[1])) ) 
+#                sum(log(s[1]*dnorm(W, s[2], sqrt(s[4]))+
+ #                   (1-s[1])*dnorm(W, s[3], sqrt(s[5]))))
                     ## The log likelihood of observing Ep given s[1] 
       }
       -loglik
