@@ -29,5 +29,5 @@ iter = function(W, s) {
 s1
 }
 
-iter(W,s)
-
+out <- iter(W,s)
+print(out)
