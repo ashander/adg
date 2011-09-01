@@ -94,10 +94,14 @@ b=bwd(O[,2],fcoin,bcoin,S)
 #decoding
 prob=exp(((f+b)-log(sum(exp(f[nrow(f),])))))
 
+png("hmm.png")
 plot(O[,1],type="l")
 lines(prob[,2],col="blue")
 legend(775,.95,c("observed","hmm"),col=c("black","blue"),lwd=2,bty="n")
+dev.off()
 
+require(socialR)
+upload("hmm.png", script="HMM_TOY_YB.R", tags="algorithms")
 
 
 
