@@ -10,11 +10,12 @@
 #'  each state at each site, beta$coin.zero for coin zero and beta$coin.one
 #'  for coin one
 #' @examples
-#'  obs = rbinom(100, prob=0.8)
+#'  obs = rbinom(100,1, prob=0.8)
 #'  coin.z = c(.5,.5)
 #'  coin.o = c(.7,.3)
 #'  trans = matrix(c(.8,.2,.2,.8), byrow=TRUE)
 #'  bwd(obs, coin.z, coin.o, trans)
+#' @export
 
 	bwd=function(observed,coin.zero,coin.one,transitions){
 		#Making emissions vectors

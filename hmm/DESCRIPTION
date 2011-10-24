@@ -1,5 +1,10 @@
-TITLE: Toy Hidden Markov Model
-PACKAGE: toyHMM
-VERSION: 0.0-1
+Package: toyHMM
+Title: Toy Hidden Markov Model
+Version: 0.0-1
 Maintainer: Algo Discussion Group <git@github.com>
+Author: Algo Discussion Group <git@github.com>
 License: GPL
+Description: A package for running a toy hidden Markov
+    model
+Collate:
+    'bwd.R'
