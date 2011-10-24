@@ -1,0 +1,5 @@
+TITLE: Toy Hidden Markov Model
+PACKAGE: toyHMM
+VERSION: 0.0-1
+Maintainer: Algo Discussion Group <git@github.com>
+License: GPL
