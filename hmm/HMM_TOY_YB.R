@@ -63,6 +63,24 @@ O$observation=get.obs(O$state,coin.zero,coin.one)
 	}
 
 	#BWD ALGORITHM
+#' Backward Algorithm for Hidden Markov Model (HMM)
+#' @param observed observed states
+#' @param coin.zero probability of observing a one with coin zero: c(p, 1-p)
+#' @param coin.one probability of observing a one with coin one: c(p, 1-p)
+#'  (example of an extra line)
+#' @param transitions transition matrix for HMM. See details.
+#' @details The transition matrix should be a stochastic matrix.
+#' This is the probability of switching states. 
+#' @return beta, a two-dimensional list giving backward probabilities for
+#'  each state at each site, beta$coin.zero for coin zero and beta$coin.one
+#'  for coin one
+#' @examples
+#'  obs = rbinom(100, prob=0.8)
+#'  coin.z = c(.5,.5)
+#'  coin.o = c(.7,.3)
+#'  trans = matrix(c(.8,.2,.2,.8), byrow=TRUE)
+#'  bwd(obs, coin.z, coin.o, trans)
+
 	bwd=function(observed,coin.zero,coin.one,transitions){
 		#Making emissions vectors
 		log.emissions.coin.zero =  matrix(nrow=1,ncol=length(observed))
